@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>gerenciadorF</display-name>
+  <welcome-file-list>
+    <welcome-file>BemVindo.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+<!-- DEFININDO A ORDEM DOS FILTERS -->
+
+<!-- 1° Filter é o FilterMonitoramento -->
+<filter>
+	<filter-name>FM</filter-name>
+	<filter-class>br.com.Empresa.Controlador.FilterMonitoramento</filter-class>
+</filter>
+
+<filter-mapping>
+	<filter-name>FM</filter-name>
+	<url-pattern>/entrada</url-pattern>
+	
+</filter-mapping>
+
+<!-- 2° Filter é o FilterLogin -->
+<filter>
+	<filter-name>FL</filter-name>
+	<filter-class>br.com.Empresa.Controlador.FilterLogin</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>FL</filter-name>
+	<url-pattern>/entrada</url-pattern>
+</filter-mapping>
+
+<!-- 3° Filter é o FilterControlador -->
+<filter>
+	<filter-name>FC</filter-name>
+	<filter-class>br.com.Empresa.Controlador.FilterControlador</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>FC</filter-name>
+	<url-pattern>/entrada</url-pattern>
+</filter-mapping>
+
+</web-app> <!-- O WEB-APP SEMPRE TEM QUE FICAR POR ÚLTIMO PARA FECHAR OS CÓDIGOS -->
